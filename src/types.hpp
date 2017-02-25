@@ -3,6 +3,7 @@
 
 #include <complex>
 
-typedef std::complex<double> type_complex;
+typedef double type_float;
+typedef std::complex<type_float> type_complex;
 
 #endif

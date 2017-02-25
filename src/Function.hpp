@@ -8,6 +8,7 @@ namespace Functions
     class Function {
     public:
         virtual type_complex get() = 0;
+        virtual void set() = 0;
     };
 }
 

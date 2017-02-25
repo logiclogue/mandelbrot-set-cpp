@@ -7,8 +7,18 @@ using namespace std;
 
 namespace Functions
 {
+    MandelbrotFunction::MandelbrotFunction(type_complex _c)
+    {
+        c = _c;
+    }
+
     type_complex MandelbrotFunction::get()
     {
-        return 0;
+        return (z * z) + c;
+    }
+
+    void MandelbrotFunction::set()
+    {
+        z = get();
     }
 }
