@@ -1,15 +1,13 @@
 #ifndef FUNCTION_HPP
 #define FUNCTION_HPP
 
-#include <complex>
-
-using namespace std;
+#include "types.hpp"
 
 namespace Functions
 {
     class Function {
     public:
-        virtual complex<double> get() = 0;
+        virtual type_complex get() = 0;
     };
 }
 
