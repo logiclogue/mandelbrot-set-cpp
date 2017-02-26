@@ -7,8 +7,8 @@ namespace Functions
 {
     class Function {
     public:
-        virtual type_complex get() = 0;
-        virtual void set() = 0;
+        virtual type_complex get(type_complex input, int iterations) = 0;
+        virtual type_complex condition(type_complex input) = 0;
     };
 }
 

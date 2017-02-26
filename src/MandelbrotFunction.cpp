@@ -7,18 +7,25 @@ using namespace std;
 
 namespace Functions
 {
-    MandelbrotFunction::MandelbrotFunction(type_complex _c)
+    type_complex MandelbrotFunction::get(type_complex z, int iterations)
     {
-        c = _c;
+        int i, z;
+
+        for (i = 0; i < iterations; i += 1) {
+            z = pow(z, 2) + c;
+        }
+
+        return z;
     }
 
-    type_complex MandelbrotFunction::get()
+    bool MandelbrotFunction::condition(type_complex z)
     {
-        return (z * z) + c;
-    }
+        type_float distance = abs(z);
 
-    void MandelbrotFunction::set()
-    {
-        z = get();
+        if (distance < 2) {
+            return true;
+        }
+
+        return false;
     }
 }
