@@ -8,11 +8,7 @@ using namespace Functions;
 
 int main()
 {
-    MandelbrotFunction func = MandelbrotFunction(0.1);
-
-    func.set();
-
-    cout << func.get() << endl;
+    MandelbrotFunction func;
 
     return 0;
 }

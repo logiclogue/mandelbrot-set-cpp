@@ -6,8 +6,14 @@
 namespace Functions
 {
     class MandelbrotFunction : public Function {
+    private:
+        type_complex z;
     public:
-        type_complex get(type_complex input, int iterations);
+        MandelbrotFunction();
+        type_complex get(type_complex input);
+        type_complex set(type_complex input);
+        bool condition(type_complex input);
+        void reset();
     };
 }
 
