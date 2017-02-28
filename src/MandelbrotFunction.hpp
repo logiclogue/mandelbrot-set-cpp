@@ -10,10 +10,8 @@ namespace Functions
         type_complex z;
     public:
         MandelbrotFunction();
-        type_complex get(type_complex input);
-        type_complex set(type_complex input);
-        bool condition(type_complex input);
-        void reset();
+        type_complex get(type_complex z, type_complex c);
+        bool is_in_set(type_complex input);
     };
 }
 

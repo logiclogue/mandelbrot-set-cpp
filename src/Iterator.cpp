@@ -1,28 +1,30 @@
 #include "Iterator.hpp"
 #include "Function.hpp"
+#include "types.hpp"
+
+using namespace Functions;
 
 namespace Iterator
 {
-    Iterator::Iterator(Function _func, int _iterations)
+    Iterator::Iterator(Function *_func, int _iterations)
     {
         iterations = _iterations;
         func = _func;
     }
 
-    Iterator::iterate(type_complex input)
+    type_complex Iterator::iterate(type_complex c)
     {
         int i;
+        type_complex z;
 
         for (i = 0; i < iterations; i += 1) {
-            func.set(input);
+            z = func->get(z, c);
 
-            if (func.condition(input)) {
+            if (!func->is_in_set(z)) {
                 break;
             }
         }
 
-        func.reset();
-
-        return func.get(input);
+        return z;
     }
 }

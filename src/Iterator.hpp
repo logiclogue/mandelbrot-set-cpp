@@ -9,11 +9,11 @@ namespace Iterator
     class Iterator {
     public:
         int iterations;
-        Functions::Function func;
+        Functions::Function *func;
 
-        Iterator(Functions::Function func, int iterations);
+        Iterator(Functions::Function *func, int iterations);
         type_complex iterate(type_complex input);
-    }
+    };
 }
 
 #endif
