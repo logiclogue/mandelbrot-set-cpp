@@ -4,7 +4,7 @@
 
 using namespace Functions;
 
-namespace Iterator
+namespace Iterators
 {
     Iterator::Iterator(Function *_func, int _iterations)
     {

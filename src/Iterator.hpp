@@ -4,7 +4,7 @@
 #include "types.hpp"
 #include "Function.hpp"
 
-namespace Iterator
+namespace Iterators
 {
     class Iterator {
     public:
