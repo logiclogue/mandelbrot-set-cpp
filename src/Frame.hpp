@@ -11,10 +11,10 @@ namespace Frames
         type_float x_offset;
         type_float y_offset;
 
-        reset_offset();
+        void reset_offset();
     public:
         Camera *camera;
-        Interators::Iterator *iterator;
+        Iterators::Iterator *iterator;
         unsigned int pixel_width;
         unsigned int pixel_height;
 
@@ -23,8 +23,8 @@ namespace Frames
             unsigned int pixel_height,
             Camera *camera,
             Iterators::Iterator *iterator);
-        int get_value(int x, int y);
-    }
+        type_float get_value(int x, int y);
+    };
 }
 
 #endif
