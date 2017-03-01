@@ -12,7 +12,7 @@ namespace Iterators
         Functions::Function *func;
 
         Iterator(Functions::Function *func, int iterations);
-        type_complex iterate(type_complex input);
+        type_float iterate(type_complex input);
     };
 }
 

@@ -18,7 +18,10 @@ namespace Frames
 
     type_float Frame::get_value(int x, int y)
     {
-        return 0;
+        type_complex input(x, y);
+        type_float output = iterator->iterate(input);
+
+        return output;
     }
 
     void Frame::reset_offset()

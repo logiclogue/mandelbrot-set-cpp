@@ -1,8 +1,10 @@
+#include <complex>
 #include "Iterator.hpp"
 #include "Function.hpp"
 #include "types.hpp"
 
 using namespace Functions;
+using namespace std;
 
 namespace Iterators
 {
@@ -12,7 +14,7 @@ namespace Iterators
         func = _func;
     }
 
-    type_complex Iterator::iterate(type_complex c)
+    type_float Iterator::iterate(type_complex c)
     {
         int i;
         type_complex z;
@@ -25,6 +27,6 @@ namespace Iterators
             }
         }
 
-        return z;
+        return abs(z);
     }
 }
