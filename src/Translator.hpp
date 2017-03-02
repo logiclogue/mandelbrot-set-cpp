@@ -12,14 +12,15 @@ namespace Translators
         type_float x_offset;
         type_float y_offset;
 
-        void reset_offset();
     public:
         Camera *camera;
         Frame *frame;
+
         Translator(
             Camera *camera,
             Frame *frame);
-        type_float get_value(int x, int y);
+        type_complex translate_coords_to_complex(int x, int y);
+        type_complex translate_complex_to_coords(int x, int y);
     };
 }
 
