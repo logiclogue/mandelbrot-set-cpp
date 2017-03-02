@@ -7,8 +7,7 @@ namespace Frames
 {
     class Camera {
     public:
-        type_float x;
-        type_float y;
+        type_complex focus;
         type_float zoom;
     };
 }
