@@ -9,11 +9,12 @@ namespace Translators
     Translator::Translator(
         unsigned int _pixel_width,
         unsigned int _pixel_height,
-        Camera *camera,
+        Camera *_camera,
         Iterator *_iterator)
     {
         pixel_width = _pixel_width;
         pixel_height = _pixel_height;
+        camera = _camera;
         iterator = _iterator;
     }
 
