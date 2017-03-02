@@ -16,12 +16,9 @@ namespace Translators
     public:
         Camera *camera;
         Frame *frame;
-        Iterators::Iterator *iterator;
-
         Translator(
             Camera *camera,
-            Frame *frame,
-            Iterators::Iterator *iterator);
+            Frame *frame);
         type_float get_value(int x, int y);
     };
 }
