@@ -3,6 +3,7 @@
 
 #include "Iterator.hpp"
 #include "Camera.hpp"
+#include "Frame.hpp"
 #include "types.hpp"
 
 namespace Translators
@@ -14,14 +15,12 @@ namespace Translators
         void reset_offset();
     public:
         Camera *camera;
+        Frame *frame;
         Iterators::Iterator *iterator;
-        unsigned int pixel_width;
-        unsigned int pixel_height;
 
         Translator(
-            unsigned int pixel_width,
-            unsigned int pixel_height,
             Camera *camera,
+            Frame *frame,
             Iterators::Iterator *iterator);
         type_float get_value(int x, int y);
     };

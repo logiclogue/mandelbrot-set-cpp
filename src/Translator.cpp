@@ -1,5 +1,6 @@
 #include "Translator.hpp"
 #include "Camera.hpp"
+#include "Frame.hpp"
 #include "types.hpp"
 
 using namespace Iterators;
@@ -7,13 +8,11 @@ using namespace Iterators;
 namespace Translators
 {
     Translator::Translator(
-        unsigned int _pixel_width,
-        unsigned int _pixel_height,
         Camera *_camera,
+        Frame *_frame,
         Iterator *_iterator)
     {
-        pixel_width = _pixel_width;
-        pixel_height = _pixel_height;
+        frame = _frame;
         camera = _camera;
         iterator = _iterator;
     }
