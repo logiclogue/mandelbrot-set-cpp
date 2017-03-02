@@ -3,7 +3,7 @@
 
 #include "types.hpp"
 
-namespace Frames
+namespace Translators
 {
     class Camera {
     public:

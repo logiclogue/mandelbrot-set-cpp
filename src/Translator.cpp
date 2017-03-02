@@ -1,11 +1,12 @@
-#include "Frame.hpp"
+#include "Translator.hpp"
+#include "Camera.hpp"
 #include "types.hpp"
 
 using namespace Iterators;
 
-namespace Frames
+namespace Translators
 {
-    Frame::Frame(
+    Translator::Translator(
         unsigned int _pixel_width,
         unsigned int _pixel_height,
         Camera *camera,
@@ -16,7 +17,7 @@ namespace Frames
         iterator = _iterator;
     }
 
-    type_float Frame::get_value(int x, int y)
+    type_float Translator::get_value(int x, int y)
     {
         type_complex input(x, y);
         type_float output = iterator->iterate(input);
@@ -24,7 +25,7 @@ namespace Frames
         return output;
     }
 
-    void Frame::reset_offset()
+    void Translator::reset_offset()
     {
         x_offset = camera->zoom / 2;
         y_offset = (camera->zoom * (pixel_height / pixel_width)) / 2;

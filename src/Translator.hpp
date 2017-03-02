@@ -1,13 +1,13 @@
-#ifndef FRAME_HPP
-#define FRAME_HPP
+#ifndef TRANSLATOR_HPP
+#define TRANSLATOR_HPP
 
 #include "Iterator.hpp"
 #include "Camera.hpp"
 #include "types.hpp"
 
-namespace Frames
+namespace Translators
 {
-    class Frame {
+    class Translator {
         type_float x_offset;
         type_float y_offset;
 
@@ -18,7 +18,7 @@ namespace Frames
         unsigned int pixel_width;
         unsigned int pixel_height;
 
-        Frame(
+        Translator(
             unsigned int pixel_width,
             unsigned int pixel_height,
             Camera *camera,
