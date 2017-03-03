@@ -16,9 +16,7 @@ namespace Translators
         Camera *camera;
         Frame *frame;
 
-        Translator(
-            Camera *camera,
-            Frame *frame);
+        Translator(Camera *camera, Frame *frame);
         type_complex translate_coords_to_complex(int x, int y);
         type_complex translate_complex_to_coords(int x, int y);
     };
