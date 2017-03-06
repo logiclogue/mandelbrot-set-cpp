@@ -7,5 +7,7 @@ namespace Translators
     public:
         int width;
         int height;
-    }
+    };
 }
+
+#endif
