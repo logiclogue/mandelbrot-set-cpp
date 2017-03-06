@@ -8,9 +8,11 @@ namespace Drawers
 {
     class Drawer {
     public:
-        Drawer(Function function, Translator translator);
+        Functions::Function function;
+        Translators::Translator translator;
+
         virtual void draw();
-    }
+    };
 }
 
 #endif
