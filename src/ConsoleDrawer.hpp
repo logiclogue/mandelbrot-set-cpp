@@ -7,13 +7,16 @@
 
 namespace Drawers
 {
-    class ConsoleDrawer : Drawer {
+    class ConsoleDrawer : public Drawer {
+        Functions::Function *function;
+        Translators::Translator *translator;
+
     public:
         ConsoleDrawer(
-            Functions::Function function,
-            Translators::Translator translator);
+            Functions::Function *function,
+            Translators::Translator *translator);
         void draw();
-    }
+    };
 }
 
 #endif
