@@ -26,7 +26,7 @@ namespace Drawers
 
         for (x = 0; x < width; x += 1) {
             for (y = 0; y < height; y += 1) {
-                //coords complex(x, y);
+                type_complex coords(x, y);
                 result = iterator->iterate(coords);
 
                 if (iterator->func->is_in_set(result)) {

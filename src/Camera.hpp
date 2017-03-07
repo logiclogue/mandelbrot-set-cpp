@@ -9,6 +9,8 @@ namespace Translators
     public:
         type_complex focus;
         type_float zoom;
+
+        Camera(type_complex focus, type_float zoom);
     };
 }
 

@@ -4,22 +4,32 @@
 #include "Function.hpp"
 #include "MandelbrotFunction.hpp"
 #include "Iterator.hpp"
+#include "ConsoleDrawer.hpp"
+#include "Translator.hpp"
 
 using namespace std;
 using namespace Functions;
 using namespace Iterators;
+using namespace Drawers;
+using namespace Translators;
 
 int main()
 {
     MandelbrotFunction *func = new MandelbrotFunction();
     Iterator *iterator = new Iterator(func, 100);
+    Frame *frame = new Frame(10, 10);
+    Camera *camera = new Camera(0, 4);
+    Translator *translator = new Translator(camera, frame);
+    Drawer *drawer = new ConsoleDrawer(iterator, translator);
 
-    type_complex result = iterator->iterate(0.1);
+    drawer->draw();
 
-    cout << result << endl;
-    
     free(func);
     free(iterator);
+    free(frame);
+    free(camera);
+    free(translator);
+    free(drawer);
 
     return 0;
 }

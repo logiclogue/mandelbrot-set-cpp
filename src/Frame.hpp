@@ -7,6 +7,8 @@ namespace Translators
     public:
         int width;
         int height;
+
+        Frame(int width, int height);
     };
 }
 
