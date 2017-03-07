@@ -3,17 +3,17 @@
 
 #include "Drawer.hpp"
 #include "Translator.hpp"
-#include "Function.hpp"
+#include "Iterator.hpp"
 
 namespace Drawers
 {
     class ConsoleDrawer : public Drawer {
-        Functions::Function *function;
+        Iterators::Iterator *iterator;
         Translators::Translator *translator;
 
     public:
         ConsoleDrawer(
-            Functions::Function *function,
+            Iterators::Iterator *iterator,
             Translators::Translator *translator);
         void draw();
     };
