@@ -17,8 +17,8 @@ namespace Translators
 
     type_complex Translator::translate_coords_to_complex(int x, int y)
     {
-        type_float x_ratio = (x / frame->width) - 0.5;
-        type_float y_ratio = (y / frame->height) - 0.5;
+        type_float x_ratio = ((type_float)x / (type_float)frame->width) - 0.5;
+        type_float y_ratio = ((type_float)y / (type_float)frame->height) - 0.5;
 
         type_float x_zoom = camera->zoom;
         type_float y_zoom = camera->zoom * (frame->height / frame->width);

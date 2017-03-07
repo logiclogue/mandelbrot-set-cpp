@@ -24,9 +24,9 @@ namespace Drawers
         type_complex coords;
         type_complex result;
 
-        for (x = 0; x < width; x += 1) {
-            for (y = 0; y < height; y += 1) {
-                type_complex coords(x, y);
+        for (y = 0; y < height; y += 1) {
+            for (x = 0; x < width; x += 1) {
+                coords = translator->translate_coords_to_complex(x, y);
                 result = iterator->iterate(coords);
 
                 if (iterator->func->is_in_set(result)) {
