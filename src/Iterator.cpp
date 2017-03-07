@@ -17,7 +17,7 @@ namespace Iterators
     type_float Iterator::iterate(type_complex c)
     {
         int i;
-        type_complex z;
+        type_complex z = c;
 
         for (i = 0; i < iterations; i += 1) {
             z = func->get(z, c);
