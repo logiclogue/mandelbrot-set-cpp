@@ -6,17 +6,20 @@ using namespace std;
 
 namespace Functions
 {
-    MultibrotFunction::MultibrotFunction(type_float _power)
+    template <class T>
+    MultibrotFunction<T>::MultibrotFunction(T _power)
     {
         power = _power;
     }
 
-    type_complex MultibrotFunction::get(type_complex z, type_complex c)
+    template <class T>
+    type_complex MultibrotFunction<T>::get(type_complex z, type_complex c)
     {
         return pow(z, power) + c;
     }
 
-    bool MultibrotFunction::is_in_set(type_complex input)
+    template <class T>
+    bool MultibrotFunction<T>::is_in_set(type_complex input)
     {
         type_float distance = abs(input);
 

@@ -6,11 +6,12 @@
 
 namespace Functions
 {
+    template <class T>
     class MultibrotFunction : public Function {
-        type_float power;
+        T power;
 
     public:
-        MultibrotFunction(type_float power);
+        MultibrotFunction(T power);
         type_complex get(type_complex z, type_complex c);
         bool is_in_set(type_complex input);
     };
