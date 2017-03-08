@@ -2,16 +2,13 @@
 #define MANDELBROT_FUNCTION_HPP
 
 #include "types.hpp"
+#include "MultibrotFunction.hpp"
 
 namespace Functions
 {
-    class MandelbrotFunction : public Function {
-        type_complex z;
-
+    class MandelbrotFunction : public MultibrotFunction<int> {
     public:
         MandelbrotFunction();
-        type_complex get(type_complex z, type_complex c);
-        bool is_in_set(type_complex input);
     };
 }
 

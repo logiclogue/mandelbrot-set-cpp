@@ -17,4 +17,6 @@ namespace Functions
     };
 }
 
+#include "MultibrotFunction.tcc"
+
 #endif
