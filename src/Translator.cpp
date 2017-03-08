@@ -19,12 +19,13 @@ namespace Translators
     {
         type_float width = (type_float)frame->width;
         type_float height = (type_float)frame->height;
+        float height_ratio = frame->height_ratio;
 
         type_float x_ratio = ((type_float)x / width) - 0.5;
         type_float y_ratio = ((type_float)y / height) - 0.5;
 
         type_float x_zoom = camera->zoom;
-        type_float y_zoom = camera->zoom * (height / width);
+        type_float y_zoom = camera->zoom * (height / width) * height_ratio;
 
         type_float x_complex_non_shifted = x_ratio * x_zoom;
         type_float y_complex_non_shifted = y_ratio * y_zoom;
