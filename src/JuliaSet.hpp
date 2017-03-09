@@ -2,17 +2,17 @@
 #define JULIA_FUNCTION_HPP
 
 #include "types.hpp"
-#include "Function.hpp"
+#include "Set.hpp"
 
-namespace Functions
+namespace Sets
 {
-    class JuliaFunction : public Function {
-        Function *_func;
+    class JuliaSet : public Set {
+        Set *_set;
         type_complex _c;
 
     public:
-        JuliaFunction(type_complex c);
-        JuliaFunction(Function *func, type_complex c);
+        JuliaSet(type_complex c);
+        JuliaSet(Set *set, type_complex c);
         type_complex get(type_complex z, type_complex c);
         bool is_in_set(type_complex input);
     };

@@ -1,22 +1,22 @@
 #include <iostream>
 #include <complex>
 #include "types.hpp"
-#include "Function.hpp"
-#include "MandelbrotFunction.hpp"
+#include "Set.hpp"
+#include "MandelbrotSet.hpp"
 #include "Iterator.hpp"
 #include "ConsoleDrawer.hpp"
 #include "Translator.hpp"
 
 using namespace std;
-using namespace Functions;
+using namespace Sets;
 using namespace Iterators;
 using namespace Drawers;
 using namespace Translators;
 
 int main()
 {
-    Function *func = new MandelbrotFunction();
-    Iterator *iterator = new Iterator(func, 100);
+    Set *set = new MandelbrotSet();
+    Iterator *iterator = new Iterator(set, 100);
     Frame *frame = new Frame(160, 40, 2.15);
     Camera *camera = new Camera(0, 4);
     Translator *translator = new Translator(camera, frame);
@@ -24,7 +24,7 @@ int main()
 
     drawer->draw();
 
-    free(func);
+    free(set);
     free(iterator);
     free(frame);
     free(camera);

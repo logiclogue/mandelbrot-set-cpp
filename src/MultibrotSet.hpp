@@ -2,21 +2,21 @@
 #define MULTIBROT_FUNCTION_HPP
 
 #include "types.hpp"
-#include "Function.hpp"
+#include "Set.hpp"
 
-namespace Functions
+namespace Sets
 {
     template <class T>
-    class MultibrotFunction : public Function {
+    class MultibrotSet : public Set {
         T _power;
 
     public:
-        MultibrotFunction(T power);
+        MultibrotSet(T power);
         type_complex get(type_complex z, type_complex c);
         bool is_in_set(type_complex input);
     };
 }
 
-#include "MultibrotFunction.tcc"
+#include "MultibrotSet.tcc"
 
 #endif

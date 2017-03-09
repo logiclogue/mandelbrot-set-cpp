@@ -3,9 +3,9 @@
 
 #include "types.hpp"
 
-namespace Functions
+namespace Sets
 {
-    class Function {
+    class Set {
     public:
         virtual type_complex get(type_complex z, type_complex c) = 0;
         virtual bool is_in_set(type_complex input) = 0;

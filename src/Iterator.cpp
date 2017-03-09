@@ -1,17 +1,17 @@
 #include <complex>
 #include "Iterator.hpp"
-#include "Function.hpp"
+#include "Set.hpp"
 #include "types.hpp"
 
-using namespace Functions;
+using namespace Sets;
 using namespace std;
 
 namespace Iterators
 {
-    Iterator::Iterator(Function *_func, int _iterations)
+    Iterator::Iterator(Set *_set, int _iterations)
     {
         iterations = _iterations;
-        func = _func;
+        set = _set;
     }
 
     type_float Iterator::iterate(type_complex c)
@@ -20,9 +20,9 @@ namespace Iterators
         type_complex z = c;
 
         for (i = 0; i < iterations; i += 1) {
-            z = func->get(z, c);
+            z = set->get(z, c);
 
-            if (!func->is_in_set(z)) {
+            if (!set->is_in_set(z)) {
                 break;
             }
         }

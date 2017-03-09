@@ -29,7 +29,7 @@ namespace Drawers
                 coords = _translator->translate_coords_to_complex(x, y);
                 result = _iterator->iterate(coords);
 
-                if (_iterator->func->is_in_set(result)) {
+                if (_iterator->set->is_in_set(result)) {
                     printf("*");
                 } else {
                     printf(" ");

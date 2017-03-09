@@ -2,16 +2,16 @@
 #define ITERATOR_HPP
 
 #include "types.hpp"
-#include "Function.hpp"
+#include "Set.hpp"
 
 namespace Iterators
 {
     class Iterator {
     public:
         int iterations;
-        Functions::Function *func;
+        Sets::Set *set;
 
-        Iterator(Functions::Function *func, int iterations);
+        Iterator(Sets::Set *set, int iterations);
         type_float iterate(type_complex input);
     };
 }
