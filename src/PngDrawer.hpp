@@ -11,6 +11,8 @@ namespace Drawers
         Iterators::Iterator *iterator;
         Translators::Translator *translator;
         char *path;
+        FILE *fp;
+        bool is_error;
 
     public:
         PngDrawer(
