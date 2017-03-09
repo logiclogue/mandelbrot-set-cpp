@@ -8,11 +8,11 @@
 namespace Drawers
 {
     class PngDrawer : public Drawer {
-        Iterators::Iterator *iterator;
-        Translators::Translator *translator;
-        char *path;
-        FILE *fp;
-        bool is_error;
+        Iterators::Iterator *_iterator;
+        Translators::Translator *_translator;
+        char *_path;
+        FILE *_fp;
+        bool _is_error;
 
     public:
         PngDrawer(

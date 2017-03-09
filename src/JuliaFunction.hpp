@@ -7,8 +7,8 @@
 namespace Functions
 {
     class JuliaFunction : public Function {
-        Function *func;
-        type_complex c;
+        Function *_func;
+        type_complex _c;
 
     public:
         JuliaFunction(type_complex c);

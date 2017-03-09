@@ -9,17 +9,17 @@ using namespace Iterators;
 namespace Drawers
 {
     PngDrawer::PngDrawer(
-        Iterator *_iterator,
-        Translator *_translator,
-        char *_path)
+        Iterator *iterator,
+        Translator *translator,
+        char *path)
     {
-        iterator = _iterator;
-        translator = _translator;
-        path = _path;
+        _iterator = iterator;
+        _translator = translator;
+        _path = path;
 
-        fp = fopen(path, "wb");
+        _fp = fopen(_path, "wb");
 
-        is_error = !fp;
+        _is_error = !_fp;
     }
 
     void PngDrawer::draw()

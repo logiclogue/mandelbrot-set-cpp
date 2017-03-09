@@ -7,15 +7,15 @@ using namespace std;
 namespace Functions
 {
     template <class T>
-    MultibrotFunction<T>::MultibrotFunction(T _power)
+    MultibrotFunction<T>::MultibrotFunction(T power)
     {
-        power = _power;
+        _power = power;
     }
 
     template <class T>
     type_complex MultibrotFunction<T>::get(type_complex z, type_complex c)
     {
-        return pow(z, power) + c;
+        return pow(z, _power) + c;
     }
 
     template <class T>

@@ -9,9 +9,6 @@
 namespace Translators
 {
     class Translator {
-        type_float x_offset;
-        type_float y_offset;
-
     public:
         Camera *camera;
         Frame *frame;

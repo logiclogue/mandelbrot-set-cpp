@@ -8,8 +8,8 @@
 namespace Drawers
 {
     class ConsoleDrawer : public Drawer {
-        Iterators::Iterator *iterator;
-        Translators::Translator *translator;
+        Iterators::Iterator *_iterator;
+        Translators::Translator *_translator;
 
     public:
         ConsoleDrawer(

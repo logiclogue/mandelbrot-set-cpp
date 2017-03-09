@@ -8,7 +8,7 @@ namespace Functions
 {
     template <class T>
     class MultibrotFunction : public Function {
-        T power;
+        T _power;
 
     public:
         MultibrotFunction(T power);

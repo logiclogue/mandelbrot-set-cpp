@@ -10,26 +10,26 @@ using namespace Translators;
 
 namespace Drawers
 {
-    ConsoleDrawer::ConsoleDrawer(Iterator *_iterator, Translator *_translator)
+    ConsoleDrawer::ConsoleDrawer(Iterator *iterator, Translator *translator)
     {
-        iterator = _iterator;
-        translator = _translator;
+        _iterator = iterator;
+        _translator = translator;
     }
 
     void ConsoleDrawer::draw()
     {
         int x, y;
-        int width = translator->frame->width;
-        int height = translator->frame->height;
+        int width = _translator->frame->width;
+        int height = _translator->frame->height;
         type_complex coords;
         type_complex result;
 
         for (y = 0; y < height; y += 1) {
             for (x = 0; x < width; x += 1) {
-                coords = translator->translate_coords_to_complex(x, y);
-                result = iterator->iterate(coords);
+                coords = _translator->translate_coords_to_complex(x, y);
+                result = _iterator->iterate(coords);
 
-                if (iterator->func->is_in_set(result)) {
+                if (_iterator->func->is_in_set(result)) {
                     printf("*");
                 } else {
                     printf(" ");
