@@ -10,6 +10,7 @@ namespace Drawers
     class PngDrawer : public Drawer {
         Iterators::Iterator *iterator;
         Translators::Translator *translator;
+        char *path;
 
     public:
         PngDrawer(
@@ -17,7 +18,7 @@ namespace Drawers
             Translators::Translator *translator,
             char *path);
         void draw();
-    }
+    };
 }
 
 #endif
