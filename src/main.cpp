@@ -15,7 +15,7 @@ using namespace Translators;
 
 int main()
 {
-    MandelbrotFunction *func = new MandelbrotFunction();
+    Function *func = new MandelbrotFunction();
     Iterator *iterator = new Iterator(func, 100);
     Frame *frame = new Frame(160, 40, 2.15);
     Camera *camera = new Camera(0, 4);
