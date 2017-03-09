@@ -1,9 +1,6 @@
 #ifndef DRAWER_HPP
 #define DRAWER_HPP
 
-#include "Translator.hpp"
-#include "Set.hpp"
-
 namespace Drawers
 {
     class Drawer {
