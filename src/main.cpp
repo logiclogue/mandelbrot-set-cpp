@@ -1,6 +1,8 @@
 #include <iostream>
 #include <complex>
 #include <cstring>
+#include <cstdlib>
+#include <cstdio>
 #include "types.hpp"
 #include "Set.hpp"
 #include "MandelbrotSet.hpp"
@@ -22,6 +24,10 @@ int main(int argc, char *argv[])
     DrawerFactoryModel *model = new DrawerFactoryModel();
     DrawerFactory factory;
     Drawer *drawer;
+    char *env_columns = getenv("COLUMNS");
+    char *env_lines = getenv("LINES");
+    int columns = atoi(env_columns);
+    int lines = atoi(env_lines);
 
     model->x = 0;
     model->y = 0;
@@ -30,6 +36,14 @@ int main(int argc, char *argv[])
     model->ratio = 2.15;
     model->zoom = 4;
     model->iterations = 100;
+
+    if (columns) {
+        model->width = columns;
+    }
+
+    if (lines) {
+        model->height = lines;
+    }
 
     int i;
     char *flag, *value;
@@ -87,6 +101,8 @@ int main(int argc, char *argv[])
 
     free(model);
     free(drawer);
+    free(env_columns);
+    free(env_lines);
 
     return 0;
 }
