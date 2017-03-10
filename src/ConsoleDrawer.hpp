@@ -10,6 +10,8 @@ namespace Drawers
     class ConsoleDrawer : public Drawer {
         Iterators::Iterator *_iterator;
         Translators::Translator *_translator;
+        char _filled_char;
+        char _empty_char;
 
     public:
         ConsoleDrawer(

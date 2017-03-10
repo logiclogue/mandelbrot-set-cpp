@@ -12,6 +12,8 @@ namespace Drawers
 {
     ConsoleDrawer::ConsoleDrawer(Iterator *iterator, Translator *translator)
     {
+        _filled_char = '*';
+        _empty_char = ' ';
         _iterator = iterator;
         _translator = translator;
     }
@@ -30,9 +32,9 @@ namespace Drawers
                 result = _iterator->iterate(coords);
 
                 if (_iterator->set->is_in_set(result)) {
-                    printf("*");
+                    printf("%c", _filled_char);
                 } else {
-                    printf(" ");
+                    printf("%c", _empty_char);
                 }
             }
 
