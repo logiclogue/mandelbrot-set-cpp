@@ -21,16 +21,19 @@ int main(int argc, char *argv[])
 {
     DrawerFactoryModel *model = new DrawerFactoryModel();
 
-    model->x = -0.75;
+    model->x = 0;
     model->y = 0;
     model->width = 90;
     model->height = 40;
     model->ratio = 2.15;
-    model->zoom = 2.6;
+    model->zoom = 4;
     model->iterations = 100;
 
     int i;
     char *flag, *value;
+    char set_code;
+    type_float julia_x, julia_y;
+    type_float multibrot_power, multibrot_power_im;
 
     for (i = 0; i < argc - 1; i += 1) {
         flag = argv[i];
@@ -50,11 +53,35 @@ int main(int argc, char *argv[])
             model->zoom = atof(value);
         } else if (!strcmp(flag, "-i")) {
             model->iterations = atoi(value);
+        } else if (!strcmp(flag, "--julia-x")) {
+            set_code = 'j';
+            julia_x = atof(value);
+        } else if (!strcmp(flag, "--julia-y")) {
+            set_code = 'j';
+            julia_y = atof(value);
+        } else if (!strcmp(flag, "--multibrot")) {
+            set_code = 'm';
+            multibrot_power = atof(value);
+        } else if (!strcmp(flag, "--multibrot-im")) {
+            set_code = 'm';
+            multibrot_power_im = atof(value);
         }
     }
 
     DrawerFactory factory;
-    Drawer *drawer = factory.create_mandelbrot_set(model);
+    Drawer *drawer;
+
+    switch (set_code) {
+    case 'j':
+        drawer = factory.create_julia_set(model, type_complex(julia_x, julia_y));
+        break;
+    case 'm':
+        drawer = factory.create_multibrot_set(
+            model, type_complex(multibrot_power, multibrot_power_im));
+        break;
+    default:
+        drawer = factory.create_mandelbrot_set(model);
+    }
 
     drawer->draw();
 
