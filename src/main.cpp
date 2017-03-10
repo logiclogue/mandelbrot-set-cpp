@@ -1,5 +1,6 @@
 #include <iostream>
 #include <complex>
+#include <cstring>
 #include "types.hpp"
 #include "Set.hpp"
 #include "MandelbrotSet.hpp"
@@ -16,7 +17,7 @@ using namespace Drawers;
 using namespace Translators;
 using namespace Factories;
 
-int main()
+int main(int argc, char *argv[])
 {
     DrawerFactoryModel *model = new DrawerFactoryModel();
 
@@ -27,6 +28,30 @@ int main()
     model->ratio = 2.15;
     model->zoom = 4;
     model->iterations = 100;
+
+    int i;
+    char *flag, *value;
+
+    for (i = 0; i < argc - 1; i += 1) {
+        flag = argv[i];
+        value = argv[i + 1];
+
+        if (!strcmp(flag, "-x")) {
+            model->x = atof(value);
+        } else if (!strcmp(flag, "-y")) {
+            model->y = atof(value);
+        } else if (!strcmp(flag, "-w")) {
+            model->width = atoi(value);
+        } else if (!strcmp(flag, "-h")) {
+            model->height = atoi(value);
+        } else if (!strcmp(flag, "-r")) {
+            model->ratio = atof(value);
+        } else if (!strcmp(flag, "-z")) {
+            model->zoom = atof(value);
+        } else if (!strcmp(flag, "-i")) {
+            model->iterations = atoi(value);
+        }
+    }
 
     DrawerFactory factory;
     Drawer *drawer = factory.create_mandelbrot_set(model);
