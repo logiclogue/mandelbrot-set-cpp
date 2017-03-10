@@ -1,8 +1,8 @@
 #include <iostream>
 #include <complex>
 #include <cstring>
-#include <cstdlib>
-#include <cstdio>
+#include <stdlib.h>
+#include <stdio.h>
 #include "types.hpp"
 #include "Set.hpp"
 #include "MandelbrotSet.hpp"
@@ -26,8 +26,6 @@ int main(int argc, char *argv[])
     Drawer *drawer;
     char *env_columns = getenv("COLUMNS");
     char *env_lines = getenv("LINES");
-    int columns = atoi(env_columns);
-    int lines = atoi(env_lines);
 
     model->x = 0;
     model->y = 0;
@@ -37,12 +35,12 @@ int main(int argc, char *argv[])
     model->zoom = 4;
     model->iterations = 100;
 
-    if (columns) {
-        model->width = columns;
+    if (env_columns) {
+        model->width = atoi(env_columns);
     }
 
-    if (lines) {
-        model->height = lines;
+    if (env_lines) {
+        model->height = atoi(env_lines);
     }
 
     int i;
