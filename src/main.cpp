@@ -21,12 +21,12 @@ int main(int argc, char *argv[])
 {
     DrawerFactoryModel *model = new DrawerFactoryModel();
 
-    model->x = 0;
+    model->x = -0.75;
     model->y = 0;
-    model->width = 100;
+    model->width = 90;
     model->height = 40;
     model->ratio = 2.15;
-    model->zoom = 4;
+    model->zoom = 2.6;
     model->iterations = 100;
 
     int i;
