@@ -20,6 +20,8 @@ using namespace Factories;
 int main(int argc, char *argv[])
 {
     DrawerFactoryModel *model = new DrawerFactoryModel();
+    DrawerFactory factory;
+    Drawer *drawer;
 
     model->x = 0;
     model->y = 0;
@@ -68,12 +70,10 @@ int main(int argc, char *argv[])
         }
     }
 
-    DrawerFactory factory;
-    Drawer *drawer;
-
     switch (set_code) {
     case 'j':
-        drawer = factory.create_julia_set(model, type_complex(julia_x, julia_y));
+        drawer = factory.create_julia_set(
+            model, type_complex(julia_x, julia_y));
         break;
     case 'm':
         drawer = factory.create_multibrot_set(
