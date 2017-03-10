@@ -1,10 +1,11 @@
-#include <stdio.h>
+#include <iostream>
 #include "Drawer.hpp"
 #include "ConsoleDrawer.hpp"
 #include "Iterator.hpp"
 #include "Translator.hpp"
 #include "types.hpp"
 
+using namespace std;
 using namespace Iterators;
 using namespace Translators;
 
@@ -32,13 +33,13 @@ namespace Drawers
                 result = _iterator->iterate(coords);
 
                 if (_iterator->set->is_in_set(result)) {
-                    printf("%c", _filled_char);
+                    cout << _filled_char;
                 } else {
-                    printf("%c", _empty_char);
+                    cout << _empty_char;
                 }
             }
 
-            printf("\n");
+            cout << endl;
         }
     }
 }
