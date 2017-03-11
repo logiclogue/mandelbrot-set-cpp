@@ -8,6 +8,7 @@
 #include "JuliaSet.hpp"
 #include "Iterator.hpp"
 #include "ConsoleDrawer.hpp"
+#include "HelpTextDrawer.hpp"
 #include "Translator.hpp"
 
 using namespace std;
@@ -59,5 +60,10 @@ namespace Factories
         Translator *translator = new Translator(camera, frame);
 
         return new ConsoleDrawer(iterator, translator);
+    }
+
+    Drawer *DrawerFactory::create_help_text()
+    {
+        return new HelpTextDrawer();
     }
 }

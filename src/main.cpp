@@ -24,24 +24,14 @@ int main(int argc, char *argv[])
     DrawerFactoryModel *model = new DrawerFactoryModel();
     DrawerFactory factory;
     Drawer *drawer;
-    char *env_columns = getenv("COLUMNS");
-    char *env_lines = getenv("LINES");
 
     model->x = 0;
     model->y = 0;
-    model->width = 90;
-    model->height = 40;
+    model->width = 80;
+    model->height = 20;
     model->ratio = 2.15;
     model->zoom = 4;
     model->iterations = 100;
-
-    if (env_columns) {
-        model->width = atoi(env_columns);
-    }
-
-    if (env_lines) {
-        model->height = atoi(env_lines);
-    }
 
     int i;
     char *flag, *value;
@@ -49,36 +39,43 @@ int main(int argc, char *argv[])
     type_float julia_x, julia_y;
     type_float multibrot_power, multibrot_power_im;
 
-    for (i = 0; i < argc - 1; i += 1) {
+    for (i = 0; i < argc; i += 1) {
         flag = argv[i];
-        value = argv[i + 1];
 
-        if (!strcmp(flag, "-x")) {
+        if (i == argc - 1) {
+            value = NULL;
+        } else {
+            value = argv[i + 1];
+        }
+
+        if (!strcmp(flag, "--x-coord")) {
             model->x = atof(value);
-        } else if (!strcmp(flag, "-y")) {
+        } else if (!strcmp(flag, "--y-coord")) {
             model->y = atof(value);
-        } else if (!strcmp(flag, "-w")) {
+        } else if (!strcmp(flag, "--width")) {
             model->width = atoi(value);
-        } else if (!strcmp(flag, "-h")) {
+        } else if (!strcmp(flag, "--height")) {
             model->height = atoi(value);
-        } else if (!strcmp(flag, "-r")) {
+        } else if (!strcmp(flag, "--ratio")) {
             model->ratio = atof(value);
-        } else if (!strcmp(flag, "-z")) {
+        } else if (!strcmp(flag, "--zoom")) {
             model->zoom = atof(value);
-        } else if (!strcmp(flag, "-i")) {
+        } else if (!strcmp(flag, "--iterations")) {
             model->iterations = atoi(value);
-        } else if (!strcmp(flag, "--julia-x")) {
+        } else if (!strcmp(flag, "--julia-r")) {
             set_code = 'j';
             julia_x = atof(value);
-        } else if (!strcmp(flag, "--julia-y")) {
+        } else if (!strcmp(flag, "--julia-i")) {
             set_code = 'j';
             julia_y = atof(value);
-        } else if (!strcmp(flag, "--multibrot")) {
+        } else if (!strcmp(flag, "--multi-r")) {
             set_code = 'm';
             multibrot_power = atof(value);
-        } else if (!strcmp(flag, "--multibrot-im")) {
+        } else if (!strcmp(flag, "--multi-i")) {
             set_code = 'm';
             multibrot_power_im = atof(value);
+        } else if (!strcmp(flag, "--help")) {
+            set_code = 'h';
         }
     }
 
@@ -91,6 +88,9 @@ int main(int argc, char *argv[])
         drawer = factory.create_multibrot_set(
             model, type_complex(multibrot_power, multibrot_power_im));
         break;
+    case 'h':
+        drawer = factory.create_help_text();
+        break;
     default:
         drawer = factory.create_mandelbrot_set(model);
     }
@@ -99,8 +99,6 @@ int main(int argc, char *argv[])
 
     free(model);
     free(drawer);
-    free(env_columns);
-    free(env_lines);
 
     return 0;
 }
