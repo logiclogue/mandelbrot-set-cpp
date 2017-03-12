@@ -62,8 +62,8 @@ namespace Factories
         return new ConsoleDrawer(iterator, translator);
     }
 
-    Drawer *DrawerFactory::create_help_text()
+    Drawer *DrawerFactory::create_help_text(char *program_name)
     {
-        return new HelpTextDrawer();
+        return new HelpTextDrawer(program_name);
     }
 }

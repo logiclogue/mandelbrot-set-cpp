@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
             model, type_complex(multibrot_power, multibrot_power_im));
         break;
     case 'h':
-        drawer = factory.create_help_text();
+        drawer = factory.create_help_text(argv[0]);
         break;
     default:
         drawer = factory.create_mandelbrot_set(model);

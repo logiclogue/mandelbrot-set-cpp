@@ -6,10 +6,11 @@
 namespace Drawers
 {
     class HelpTextDrawer : public Drawer {
-        int length;
+        int _length;
+        char *_program_name;
 
     public:
-        HelpTextDrawer();
+        HelpTextDrawer(char *program_name);
         void draw();
     };
 }

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdio>
 #include "HelpTextDrawer.hpp"
 
 using namespace std;
@@ -7,7 +8,7 @@ char *help_text[] = {
     (char *)"Mandelbrot Set Drawer",
     (char *)"",
     (char *)"Usage:",
-    (char *)" draw-mandelbrot-set [arguments]",
+    (char *)" %s [arguments]",
     (char *)"",
     (char *)"Arguments:",
     (char *)" --x-coord     <number>  X coordinate at the centre of the screen (default 0)",
@@ -25,17 +26,19 @@ char *help_text[] = {
 
 namespace Drawers
 {
-    HelpTextDrawer::HelpTextDrawer()
+    HelpTextDrawer::HelpTextDrawer(char *program_name)
     {
-        length = sizeof(help_text) / sizeof(*help_text);
+        _length = sizeof(help_text) / sizeof(*help_text);
+        _program_name = program_name;
     }
 
     void HelpTextDrawer::draw()
     {
         int i;
 
-        for (i = 0; i < length; i += 1) {
-            cout << help_text[i] << endl;
+        for (i = 0; i < _length; i += 1) {
+            printf(help_text[i], _program_name);
+            cout << endl;
         }
     }
 }
