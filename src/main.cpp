@@ -38,12 +38,13 @@ int main(int argc, char *argv[])
     char set_code;
     type_float julia_x, julia_y;
     type_float multibrot_power, multibrot_power_im;
+    char null_string[] = "";
 
     for (i = 0; i < argc; i += 1) {
         flag = argv[i];
 
         if (i == argc - 1) {
-            value = NULL;
+            value = null_string;
         } else {
             value = argv[i + 1];
         }
