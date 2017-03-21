@@ -8,6 +8,7 @@
 #include "JuliaSet.hpp"
 #include "Iterator.hpp"
 #include "ConsoleDrawer.hpp"
+#include "BitmapDrawer.hpp"
 #include "HelpTextDrawer.hpp"
 #include "Translator.hpp"
 
