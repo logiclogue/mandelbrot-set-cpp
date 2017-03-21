@@ -1,5 +1,5 @@
 #include <png.h>
-#include "PngDrawer.hpp"
+#include "BitmapDrawer.hpp"
 #include "Translator.hpp"
 #include "Iterator.hpp"
 
@@ -8,21 +8,16 @@ using namespace Iterators;
 
 namespace Drawers
 {
-    PngDrawer::PngDrawer(
+    BitmapDrawer::BitmapDrawer(
         Iterator *iterator,
         Translator *translator,
         char *path)
     {
         _iterator = iterator;
         _translator = translator;
-        _path = path;
-
-        _fp = fopen(_path, "wb");
-
-        _is_error = !_fp;
     }
 
-    void PngDrawer::draw()
+    void BitmapDrawer::draw()
     {
         
     }

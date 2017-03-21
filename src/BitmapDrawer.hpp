@@ -7,15 +7,13 @@
 
 namespace Drawers
 {
-    class PngDrawer : public Drawer {
+    class BitmapDrawer : public Drawer {
         Iterators::Iterator *_iterator;
         Translators::Translator *_translator;
-        char *_path;
-        FILE *_fp;
-        bool _is_error;
+        unsigned char *_img;
 
     public:
-        PngDrawer(
+        BitmapDrawer(
             Iterators::Iterator *iterator,
             Translators::Translator *translator,
             char *path);
