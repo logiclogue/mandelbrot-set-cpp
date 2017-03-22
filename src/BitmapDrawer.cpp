@@ -1,4 +1,4 @@
-#include <png.h>
+#include <cstring>
 #include "BitmapDrawer.hpp"
 #include "Translator.hpp"
 #include "Iterator.hpp"
@@ -15,6 +15,7 @@ namespace Drawers
     {
         _iterator = iterator;
         _translator = translator;
+        strcpy(_path, path);
         _width = &translator->frame->width;
         _height = &translator->frame->height;
         _filesize = 54 + (3 * (*_width) * (*_height));
@@ -81,11 +82,12 @@ namespace Drawers
                 i = x + (y * (*_width));
                 _img[(3 * i) + 2] = 0;
                 _img[(3 * i) + 1] = 0;
-                _img[(3 * i) + 0] = 0;
+                _img[(3 * i) + 0] = 255;
             }
         }
 
-        f = fopen("img.bmp", "wb");
+        f = fopen(_path, "wb");
+
         fwrite(_file_header, 1, 14, f);
         fwrite(_info_header, 1, 40, f);
 

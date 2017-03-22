@@ -10,6 +10,7 @@ namespace Drawers
     class BitmapDrawer : public Drawer {
         Iterators::Iterator *_iterator;
         Translators::Translator *_translator;
+        char _path[256];
         unsigned char *_img;
         unsigned char _file_header[14];
         unsigned char _info_header[40];
