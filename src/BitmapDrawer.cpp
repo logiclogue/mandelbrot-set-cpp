@@ -92,7 +92,7 @@ namespace Drawers
         fwrite(_info_header, 1, 40, f);
 
         for (j = 0; j < *_height; j += 1) {
-            fwrite(_img + ((*_width) * ((*_height) - j - 1)), 3, *_width, f);
+            fwrite(_img + (j * (*_width)), 3, *_width, f);
             fwrite(_pad, 1, (4 - ((*_width) * 3) % 4) % 4, f);
         }
 
