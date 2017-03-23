@@ -76,13 +76,23 @@ namespace Drawers
     {
         int x, y, i, j;
         FILE *f;
+        type_complex coords;
+        type_complex result;
 
         for (x = 0; x < *_width; x += 1) {
             for (y = 0; y < *_height; y += 1) {
+                coords = _translator->translate_coords_to_complex(x, y);
+                result = _iterator->iterate(coords);
+
                 i = x + (y * (*_width));
                 _img[(3 * i) + 2] = 0;
                 _img[(3 * i) + 1] = 0;
-                _img[(3 * i) + 0] = 255;
+
+                if (_iterator->set->is_in_set(result)) {
+                    _img[(3 * i) + 0] = 255;
+                } else {
+                    _img[(3 * i) + 0] = 0;
+                }
             }
         }
 
@@ -92,7 +102,7 @@ namespace Drawers
         fwrite(_info_header, 1, 40, f);
 
         for (j = 0; j < *_height; j += 1) {
-            fwrite(_img + (j * (*_width)), 3, *_width, f);
+            fwrite(_img + (j * (*_width) * 3), 3, *_width, f);
             fwrite(_pad, 1, (4 - ((*_width) * 3) % 4) % 4, f);
         }
 
