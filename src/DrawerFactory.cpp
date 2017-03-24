@@ -60,7 +60,7 @@ namespace Factories
         Camera *camera = new Camera(focus, model->zoom);
         Translator *translator = new Translator(camera, frame);
 
-        return new BitmapDrawer(iterator, translator, "img.bmp");
+        return new BitmapDrawer(iterator, translator);
         //return new ConsoleDrawer(iterator, translator);
     }
 

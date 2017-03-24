@@ -10,12 +10,10 @@ namespace Drawers
 {
     BitmapDrawer::BitmapDrawer(
         Iterator *iterator,
-        Translator *translator,
-        const char *path)
+        Translator *translator)
     {
         _iterator = iterator;
         _translator = translator;
-        strcpy(_path, path);
         _width = &translator->frame->width;
         _height = &translator->frame->height;
         _filesize = 54 + (3 * (*_width) * (*_height));
@@ -75,7 +73,6 @@ namespace Drawers
     void BitmapDrawer::draw()
     {
         int x, y, i, j;
-        FILE *f;
         type_complex coords;
         type_complex result;
 
@@ -96,16 +93,12 @@ namespace Drawers
             }
         }
 
-        f = fopen(_path, "wb");
-
-        fwrite(_file_header, 1, 14, f);
-        fwrite(_info_header, 1, 40, f);
+        fwrite(_file_header, 1, 14, stdout);
+        fwrite(_info_header, 1, 40, stdout);
 
         for (j = 0; j < *_height; j += 1) {
-            fwrite(_img + (j * (*_width) * 3), 3, *_width, f);
-            fwrite(_pad, 1, (4 - ((*_width) * 3) % 4) % 4, f);
+            fwrite(_img + (j * (*_width) * 3), 3, *_width, stdout);
+            fwrite(_pad, 1, (4 - ((*_width) * 3) % 4) % 4, stdout);
         }
-
-        fclose(f);
     }
 }
