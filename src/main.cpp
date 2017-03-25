@@ -36,8 +36,10 @@ int main(int argc, char *argv[])
     int i;
     char *flag, *value;
     char set_code;
-    type_float julia_x, julia_y;
-    type_float multibrot_power, multibrot_power_im;
+    type_float julia_x = 0;
+    type_float julia_y = 0;
+    type_float multibrot_power = 2;
+    type_float multibrot_power_im = 0;
     char null_string[] = "";
 
     for (i = 0; i < argc; i += 1) {

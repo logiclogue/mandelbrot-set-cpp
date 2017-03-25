@@ -19,9 +19,13 @@ char *help_text[] = {
     (char *)" --zoom        <number>  Zoom, width of the screen (default 4)",
     (char *)" --iterations  <number>  Iterations (default 100)",
     (char *)" --julia-r     <number>  Draw a Julia Set with `+ c` as real <number>",
+    (char *)"                         (default 0)",
     (char *)" --julia-i     <number>  Draw a Julia Set with `+ c` as imaginary <number>",
+    (char *)"                         (default 0)",
     (char *)" --multi-r     <number>  Draw a Multibrot Set with real <number> power",
-    (char *)" --multi-i     <number>  Draw a Multibrot Set with imaginary <number> power"
+    (char *)"                         (default 2)",
+    (char *)" --multi-i     <number>  Draw a Multibrot Set with imaginary <number> power",
+    (char *)"                         (default 0)"
 };
 
 namespace Drawers
