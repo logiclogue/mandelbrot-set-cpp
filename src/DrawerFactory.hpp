@@ -17,7 +17,8 @@ namespace Factories
             DrawerFactoryModel *model, type_complex power);
         Drawers::Drawer *create_julia_set(
             DrawerFactoryModel *model, type_complex c);
-        Drawers::Drawer *create_set(DrawerFactoryModel *model, Sets::Set *set);
+        Drawers::Drawer *create_drawer(
+            DrawerFactoryModel *model, Sets::Set *set);
         Drawers::Drawer *create_help_text(char *program_name);
     };
 }

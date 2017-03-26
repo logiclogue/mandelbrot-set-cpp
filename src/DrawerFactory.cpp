@@ -25,7 +25,7 @@ namespace Factories
     {
         Set *set = new MandelbrotSet();
 
-        return create_set(model, set);
+        return create_drawer(model, set);
     }
     
     Drawer *DrawerFactory::create_multibrot_set(
@@ -33,7 +33,7 @@ namespace Factories
     {
         Set *set = new MultibrotSet<type_float>(power);
 
-        return create_set(model, set);
+        return create_drawer(model, set);
     }
 
     Drawer *DrawerFactory::create_multibrot_set(
@@ -41,7 +41,7 @@ namespace Factories
     {
         Set *set = new MultibrotSet<type_complex>(power);
 
-        return create_set(model, set);
+        return create_drawer(model, set);
     }
 
     Drawer *DrawerFactory::create_julia_set(
@@ -49,10 +49,10 @@ namespace Factories
     {
         Set *set = new JuliaSet(c);
 
-        return create_set(model, set);
+        return create_drawer(model, set);
     }
 
-    Drawer *DrawerFactory::create_set(DrawerFactoryModel *model, Set *set)
+    Drawer *DrawerFactory::create_drawer(DrawerFactoryModel *model, Set *set)
     {
         type_complex focus(model->x, model->y);
         Iterator *iterator = new Iterator(set, model->iterations);
