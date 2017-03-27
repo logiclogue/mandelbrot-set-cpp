@@ -36,10 +36,6 @@ int main(int argc, char *argv[])
     int i;
     char *flag, *value;
     char set_code;
-    type_float julia_x = 0;
-    type_float julia_y = 0;
-    type_float multibrot_power = 2;
-    type_float multibrot_power_im = 0;
     char null_string[] = "";
 
     for (i = 0; i < argc; i += 1) {
@@ -66,19 +62,19 @@ int main(int argc, char *argv[])
         } else if (!strcmp(flag, "--iterations")) {
             model->iterations = atoi(value);
         } else if (!strcmp(flag, "--julia-r")) {
-            set_code = 'j';
-            julia_x = atof(value);
+            model->is_julia_set = true;
+            model->julia_r = atof(value);
         } else if (!strcmp(flag, "--julia-i")) {
-            set_code = 'j';
-            julia_y = atof(value);
+            model->is_julia_set = true;
+            model->julia_i = atof(value);
         } else if (!strcmp(flag, "--multi-r")) {
-            set_code = 'm';
-            multibrot_power = atof(value);
+            model->is_multibrot_set = true;
+            model->multi_r = atof(value);
         } else if (!strcmp(flag, "--multi-i")) {
-            set_code = 'm';
-            multibrot_power_im = atof(value);
+            model->is_multibrot_set = true;
+            model->multi_i = atof(value);
         } else if (!strcmp(flag, "--help")) {
-            set_code = 'h';
+            model->is_help_text = true;
         } else if (!strcmp(flag, "--bitmap")) {
             model->bitmap = true;
         }
@@ -87,11 +83,11 @@ int main(int argc, char *argv[])
     switch (set_code) {
     case 'j':
         drawer = factory.create_julia_set(
-            model, type_complex(julia_x, julia_y));
+            model, type_complex(model->julia_r, model->julia_i));
         break;
     case 'm':
         drawer = factory.create_multibrot_set(
-            model, type_complex(multibrot_power, multibrot_power_im));
+            model, type_complex(model->multi_r, model->multi_i));
         break;
     case 'h':
         drawer = factory.create_help_text(argv[0]);
