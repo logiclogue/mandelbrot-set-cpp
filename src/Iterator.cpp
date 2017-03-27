@@ -28,6 +28,8 @@ namespace Iterators
             }
         }
 
+        iteration_count = i;
+
         return abs(z);
     }
 }

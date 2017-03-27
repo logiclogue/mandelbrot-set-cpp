@@ -9,6 +9,7 @@ namespace Iterators
     class Iterator {
     public:
         int iterations;
+        int iteration_count;
         Sets::Set *set;
 
         Iterator(Sets::Set *set, int iterations);

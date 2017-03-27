@@ -75,11 +75,13 @@ namespace Drawers
         int x, y, i, j;
         type_complex coords;
         type_complex result;
+        int shade;
 
         for (x = 0; x < *_width; x += 1) {
             for (y = 0; y < *_height; y += 1) {
                 coords = _translator->translate_coords_to_complex(x, y);
                 result = _iterator->iterate(coords);
+                shade = (((float)_iterator->iteration_count / (float)_iterator->iterations) * 255);
 
                 i = x + (y * (*_width));
                 _img[(3 * i) + 2] = 0;
@@ -88,7 +90,7 @@ namespace Drawers
                 if (_iterator->set->is_in_set(result)) {
                     _img[(3 * i) + 0] = 255;
                 } else {
-                    _img[(3 * i) + 0] = 0;
+                    _img[(3 * i) + 0] = shade;
                 }
             }
         }
