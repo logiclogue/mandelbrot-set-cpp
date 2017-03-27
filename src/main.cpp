@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     model->y = 0;
     model->width = 80;
     model->height = 20;
-    model->ratio = 2.15;
+    model->ratio = 2;
     model->zoom = 4;
     model->iterations = 100;
 
@@ -79,6 +79,8 @@ int main(int argc, char *argv[])
             multibrot_power_im = atof(value);
         } else if (!strcmp(flag, "--help")) {
             set_code = 'h';
+        } else if (!strcmp(flag, "--bitmap")) {
+            model->bitmap = true;
         }
     }
 

@@ -25,7 +25,8 @@ char *help_text[] = {
     (char *)" --multi-r     <number>  Draw a Multibrot Set with real <number> power",
     (char *)"                         (default 2)",
     (char *)" --multi-i     <number>  Draw a Multibrot Set with imaginary <number> power",
-    (char *)"                         (default 0)"
+    (char *)"                         (default 0)",
+    (char *)" --bitmap                Draws to a bitmap (default not set)"
 };
 
 namespace Drawers

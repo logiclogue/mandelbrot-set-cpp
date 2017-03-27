@@ -60,8 +60,11 @@ namespace Factories
         Camera *camera = new Camera(focus, model->zoom);
         Translator *translator = new Translator(camera, frame);
 
-        return new BitmapDrawer(iterator, translator);
-        //return new ConsoleDrawer(iterator, translator);
+        if (model->bitmap) {
+            return new BitmapDrawer(iterator, translator);
+        }
+
+        return new ConsoleDrawer(iterator, translator);
     }
 
     Drawer *DrawerFactory::create_help_text(char *program_name)

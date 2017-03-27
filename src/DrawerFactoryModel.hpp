@@ -11,6 +11,7 @@ namespace Factories
         type_float ratio;
         type_float zoom;
         int iterations;
+        bool bitmap;
     };
 }
 
