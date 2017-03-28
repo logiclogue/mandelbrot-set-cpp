@@ -29,25 +29,27 @@ namespace Factories
         return create_drawer(model, set);
     }
     
-    Drawer *DrawerFactory::create_multibrot_set(
-        DrawerFactoryModel *model, type_float power)
+    Drawer *DrawerFactory::create_multibrot_set(DrawerFactoryModel *model)
     {
-        Set *set = new MultibrotSet<type_float>(power);
-
-        return create_drawer(model, set);
-    }
-
-    Drawer *DrawerFactory::create_multibrot_set(
-        DrawerFactoryModel *model, type_complex power)
-    {
+        type_complex power(model->multi_r, model->multi_i);
         Set *set = new MultibrotSet<type_complex>(power);
 
         return create_drawer(model, set);
     }
 
-    Drawer *DrawerFactory::create_julia_set(
-        DrawerFactoryModel *model, type_complex c)
+    Drawer *DrawerFactory::create_multibrot_julia_set(DrawerFactoryModel *model)
     {
+        type_complex c(model->julia_r, model->julia_i);
+        type_complex power(model->multi_r, model->multi_i);
+        Set *multibrot = new MultibrotSet<type_complex>(power);
+        Set *set = new JuliaSet(multibrot, c);
+
+        return create_drawer(model, set);
+    }
+
+    Drawer *DrawerFactory::create_julia_set(DrawerFactoryModel *model)
+    {
+        type_complex c(model->julia_r, model->julia_i);
         Set *set = new JuliaSet(c);
 
         return create_drawer(model, set);

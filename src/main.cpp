@@ -30,12 +30,12 @@ int main(int argc, char *argv[])
 
     model = translator->translate_arguments_to_model(argc, argv);
 
-    if (model->is_julia_set) {
-        drawer = factory.create_julia_set(
-            model, type_complex(model->julia_r, model->julia_i));
+    if (model->is_julia_set && model->is_multibrot_set) {
+        drawer = factory.create_multibrot_julia_set(model);
+    } else if (model->is_julia_set) {
+        drawer = factory.create_julia_set(model);
     } else if (model->is_multibrot_set) {
-        drawer = factory.create_multibrot_set(
-            model, type_complex(model->multi_r, model->multi_i));
+        drawer = factory.create_multibrot_set(model);
     } else if (model->is_help_text) {
         drawer = factory.create_help_text(argv[0]);
     } else {
