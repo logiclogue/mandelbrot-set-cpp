@@ -18,6 +18,7 @@ using namespace Sets;
 using namespace Iterators;
 using namespace Drawers;
 using namespace Translators;
+using namespace Models;
 
 namespace Factories
 {

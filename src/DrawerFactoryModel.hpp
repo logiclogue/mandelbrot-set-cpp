@@ -1,7 +1,9 @@
 #ifndef DRAWER_FACTORY_MODEL_HPP
 #define DRAWER_FACTORY_MODEL_HPP
 
-namespace Factories
+#include "types.hpp"
+
+namespace Models
 {
     struct DrawerFactoryModel {
         type_float x;

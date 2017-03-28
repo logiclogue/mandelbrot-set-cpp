@@ -10,15 +10,15 @@ namespace Factories
 {
     class DrawerFactory {
     public:
-        Drawers::Drawer *create_mandelbrot_set(DrawerFactoryModel *model);
+        Drawers::Drawer *create_mandelbrot_set(Models::DrawerFactoryModel *model);
         Drawers::Drawer *create_multibrot_set(
-            DrawerFactoryModel *model, type_float power);
+            Models::DrawerFactoryModel *model, type_float power);
         Drawers::Drawer *create_multibrot_set(
-            DrawerFactoryModel *model, type_complex power);
+            Models::DrawerFactoryModel *model, type_complex power);
         Drawers::Drawer *create_julia_set(
-            DrawerFactoryModel *model, type_complex c);
+            Models::DrawerFactoryModel *model, type_complex c);
         Drawers::Drawer *create_drawer(
-            DrawerFactoryModel *model, Sets::Set *set);
+            Models::DrawerFactoryModel *model, Sets::Set *set);
         Drawers::Drawer *create_help_text(char *program_name);
     };
 }
