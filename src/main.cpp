@@ -32,6 +32,13 @@ int main(int argc, char *argv[])
     model->ratio = 2;
     model->zoom = 4;
     model->iterations = 100;
+    model->julia_r = 0;
+    model->julia_i = 0;
+    model->is_julia_set = false;
+    model->multi_r = 2;
+    model->multi_i = 0;
+    model->is_multibrot_set = false;
+    model->bitmap = false;
 
     int i;
     char *flag, *value;
