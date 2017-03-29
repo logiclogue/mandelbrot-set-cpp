@@ -83,7 +83,7 @@ namespace Drawers
                 result = _iterator->iterate(coords);
                 shade = (((float)_iterator->iteration_count / (float)_iterator->iterations) * 255);
 
-                i = x + (y * (*_width));
+                i = x + ((*_height - y - 1) * (*_width));
                 _img[(3 * i) + 2] = 0;
                 _img[(3 * i) + 1] = 0;
 
