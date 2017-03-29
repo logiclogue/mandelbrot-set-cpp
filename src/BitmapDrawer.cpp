@@ -72,7 +72,7 @@ namespace Drawers
 
     void BitmapDrawer::draw()
     {
-        int x, y, i, j;
+        int x, y, i;
         type_complex coords;
         type_complex result;
         int shade;
@@ -81,9 +81,9 @@ namespace Drawers
             for (y = 0; y < *_height; y += 1) {
                 coords = _translator->translate_coords_to_complex(x, y);
                 result = _iterator->iterate(coords);
-                shade = (((float)_iterator->iteration_count / (float)_iterator->iterations) * 255);
+                shade = _get_shade();
+                i = _get_current_index(x, y);
 
-                i = x + ((*_height - y - 1) * (*_width));
                 _img[(3 * i) + 2] = 0;
                 _img[(3 * i) + 1] = 0;
 
@@ -94,6 +94,29 @@ namespace Drawers
                 }
             }
         }
+
+        _output_image();
+    }
+
+    float BitmapDrawer::_get_shade()
+    {
+        float shade;
+        float iteration_count = _iterator->iteration_count;
+        float iterations = _iterator->iterations;
+
+        shade = (iteration_count / iterations) * 255;
+
+        return shade;
+    }
+
+    float BitmapDrawer::_get_current_index(int x, int y)
+    {
+        return x + (((*_height) - y - 1) * (*_width));
+    }
+
+    void BitmapDrawer::_output_image()
+    {
+        int j;
 
         fwrite(_file_header, 1, 14, stdout);
         fwrite(_info_header, 1, 40, stdout);

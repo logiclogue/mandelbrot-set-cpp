@@ -18,6 +18,10 @@ namespace Drawers
         int *_height;
         int _filesize;
 
+        float _get_shade();
+        float _get_current_index(int x, int y);
+        void _output_image();
+
     public:
         BitmapDrawer(
             Iterators::Iterator *iterator,
