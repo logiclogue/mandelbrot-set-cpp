@@ -22,9 +22,9 @@ namespace Drawers::Shaders
     public:
         StandardBitmapShader(int min_colour, int max_colour);
 
-        unsigned char getRed(type_float shade);
-        unsigned char getGreen(type_float shade);
-        unsigned char getBlue(type_float shade);
+        unsigned char get_red(type_float shade);
+        unsigned char get_green(type_float shade);
+        unsigned char get_blue(type_float shade);
     };
 }
 

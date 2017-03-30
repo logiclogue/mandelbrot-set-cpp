@@ -16,24 +16,23 @@ namespace Drawers::Shaders
         _max_colour.blue = _get_blue_component(max_colour);
     }
 
-    unsigned char StandardBitmapShader::getRed(type_float shade)
+    unsigned char StandardBitmapShader::get_red(type_float shade)
     {
         return _get_shade(_min_colour.red, _max_colour.red, shade);
     }
 
-    unsigned char StandardBitmapShader::getGreen(type_float shade)
+    unsigned char StandardBitmapShader::get_green(type_float shade)
     {
         return _get_shade(_min_colour.green, _max_colour.green, shade);
     }
 
-    unsigned char StandardBitmapShader::getBlue(type_float shade)
+    unsigned char StandardBitmapShader::get_blue(type_float shade)
     {
         return _get_shade(_min_colour.blue, _max_colour.blue, shade);
     }
 
     unsigned char StandardBitmapShader::_get_red_component(int colour)
     {
-        printf("Red: %d\n", (colour & 0xFF0000) >> 16);
         return (colour & 0xFF0000) >> 16;
     }
 
@@ -50,6 +49,8 @@ namespace Drawers::Shaders
     unsigned char StandardBitmapShader::_get_shade(
         unsigned char min_colour, unsigned char max_colour, type_float shade)
     {
-        return uint(abs(max_colour - min_colour) * shade) + min_colour;
+        unsigned char output = uint(abs(max_colour - min_colour) * shade) + min_colour;
+
+        return output;
     }
 }

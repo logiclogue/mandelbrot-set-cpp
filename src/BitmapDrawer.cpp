@@ -97,7 +97,7 @@ namespace Drawers
         int x, y, i;
         type_complex coords;
         type_complex result;
-        int shade;
+        float shade;
 
         for (x = 0; x < *_width; x += 1) {
             for (y = 0; y < *_height; y += 1) {
@@ -106,21 +106,9 @@ namespace Drawers
                 shade = _get_shade();
                 i = _get_current_index(x, y);
 
-                if (_iterator->set->is_in_set(result)) {
-                    _img[(3 * i) + 2] = 255;
-                    _img[(3 * i) + 1] = 255;
-                    _img[(3 * i) + 0] = 255;
-                } else {
-                    _img[(3 * i) + 2] = _shader->getRed(shade);
-                    _img[(3 * i) + 1] = _shader->getGreen(shade);
-                    _img[(3 * i) + 0] = _shader->getBlue(shade);
-                }
-
-                //if (_iterator->set->is_in_set(result)) {
-                //    _img[(3 * i) + 0] = 255;
-                //} else {
-                //    _img[(3 * i) + 0] = shade;
-                //}
+                _img[(3 * i) + 2] = _shader->get_red(shade);
+                _img[(3 * i) + 1] = _shader->get_green(shade);
+                _img[(3 * i) + 0] = _shader->get_blue(shade);
             }
         }
 

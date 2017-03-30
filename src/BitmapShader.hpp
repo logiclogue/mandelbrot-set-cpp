@@ -8,9 +8,9 @@ namespace Drawers::Shaders
     class BitmapShader
     {
     public:
-        virtual unsigned char getRed(type_float shade) = 0;
-        virtual unsigned char getGreen(type_float shade) = 0;
-        virtual unsigned char getBlue(type_float shade) = 0;
+        virtual unsigned char get_red(type_float shade) = 0;
+        virtual unsigned char get_green(type_float shade) = 0;
+        virtual unsigned char get_blue(type_float shade) = 0;
     };
 }
 
