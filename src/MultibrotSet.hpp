@@ -7,7 +7,8 @@
 namespace Sets
 {
     template <class T>
-    class MultibrotSet : public Set {
+    class MultibrotSet : public Set
+    {
         T _power;
 
     public:

@@ -5,7 +5,8 @@
 
 namespace Translators
 {
-    class ArgumentTranslator {
+    class ArgumentTranslator
+    {
         void _set_default_model(Models::DrawerFactoryModel *model);
         void _populate_model_from_arguments(
             Models::DrawerFactoryModel *model, int argc, char *argv[]);

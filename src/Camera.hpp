@@ -5,7 +5,8 @@
 
 namespace Translators
 {
-    class Camera {
+    class Camera
+    {
     public:
         type_complex focus;
         type_float zoom;

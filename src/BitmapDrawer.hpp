@@ -8,7 +8,8 @@
 
 namespace Drawers
 {
-    class BitmapDrawer : public Drawer {
+    class BitmapDrawer : public Drawer
+    {
         Iterators::Iterator *_iterator;
         Translators::Translator *_translator;
         Shaders::BitmapShader *_shader;

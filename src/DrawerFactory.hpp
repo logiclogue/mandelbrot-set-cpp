@@ -8,7 +8,8 @@
 
 namespace Factories
 {
-    class DrawerFactory {
+    class DrawerFactory
+    {
     public:
         Drawers::Drawer *create_mandelbrot_set(
             Models::DrawerFactoryModel *model);

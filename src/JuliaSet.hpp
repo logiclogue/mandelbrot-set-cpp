@@ -6,7 +6,8 @@
 
 namespace Sets
 {
-    class JuliaSet : public Set {
+    class JuliaSet : public Set
+    {
         Set *_set;
         type_complex _c;
 

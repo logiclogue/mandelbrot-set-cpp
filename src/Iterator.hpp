@@ -6,7 +6,8 @@
 
 namespace Iterators
 {
-    class Iterator {
+    class Iterator
+    {
     public:
         int iterations;
         int iteration_count;

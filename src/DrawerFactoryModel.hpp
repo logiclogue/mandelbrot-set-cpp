@@ -5,7 +5,8 @@
 
 namespace Models
 {
-    struct DrawerFactoryModel {
+    struct DrawerFactoryModel
+    {
         type_float x;
         type_float y;
         type_float width;

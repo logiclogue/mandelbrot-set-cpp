@@ -3,7 +3,8 @@
 
 namespace Drawers
 {
-    class Drawer {
+    class Drawer
+    {
     public:
         virtual void draw() = 0;
     };

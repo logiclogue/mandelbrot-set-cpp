@@ -6,7 +6,8 @@
 
 namespace Sets
 {
-    class MandelbrotSet : public MultibrotSet<int> {
+    class MandelbrotSet : public MultibrotSet<int>
+    {
     public:
         MandelbrotSet();
     };

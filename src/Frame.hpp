@@ -3,7 +3,8 @@
 
 namespace Translators
 {
-    class Frame {
+    class Frame
+    {
     public:
         int width;
         int height;

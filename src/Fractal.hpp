@@ -5,7 +5,8 @@
 
 namespace Fractals
 {
-    class Fractal {
+    class Fractal
+    {
     public:
         virtual type_complex get(type_complex values) = 0;
     }

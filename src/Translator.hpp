@@ -8,7 +8,8 @@
 
 namespace Translators
 {
-    class Translator {
+    class Translator
+    {
     public:
         Camera *camera;
         Frame *frame;

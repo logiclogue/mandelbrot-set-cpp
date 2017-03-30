@@ -5,7 +5,8 @@
 
 namespace Drawers
 {
-    class HelpTextDrawer : public Drawer {
+    class HelpTextDrawer : public Drawer
+    {
         int _length;
         char *_program_name;
 
