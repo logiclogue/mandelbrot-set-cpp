@@ -36,6 +36,7 @@ namespace Drawers
             Iterators::Iterator *iterator,
             Translators::Translator *translator,
             Shaders::BitmapShader *shader);
+        ~BitmapDrawer();
         void draw();
     };
 }

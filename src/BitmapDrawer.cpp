@@ -92,6 +92,10 @@ namespace Drawers
         _info_header[11] = (unsigned char)((*_height) >> 24);
     }
 
+    BitmapDrawer::~BitmapDrawer() {
+        delete _shader;
+    }
+
     void BitmapDrawer::draw()
     {
         int x, y, i;
