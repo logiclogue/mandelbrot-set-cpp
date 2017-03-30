@@ -2,9 +2,12 @@
 #include "BitmapDrawer.hpp"
 #include "Translator.hpp"
 #include "Iterator.hpp"
+#include "BitmapShader.hpp"
+#include "StandardBitmapShader.hpp"
 
 using namespace Translators;
 using namespace Iterators;
+using namespace Drawers::Shaders;
 
 namespace Drawers
 {
@@ -12,8 +15,27 @@ namespace Drawers
         Iterator *iterator,
         Translator *translator)
     {
+        BitmapShader *shader = new StandardBitmapShader(0x000000, 0xFFFFFF);
+
+        _init(iterator, translator, shader);
+    }
+
+    BitmapDrawer::BitmapDrawer(
+        Iterator *iterator,
+        Translator *translator,
+        BitmapShader *shader)
+    {
+        _init(iterator, translator, shader);
+    }
+
+    void BitmapDrawer::_init(
+        Iterator *iterator,
+        Translator *translator,
+        BitmapShader *shader)
+    {
         _iterator = iterator;
         _translator = translator;
+        _shader = shader;
         _width = &translator->frame->width;
         _height = &translator->frame->height;
         _filesize = 54 + (3 * (*_width) * (*_height));
@@ -84,14 +106,21 @@ namespace Drawers
                 shade = _get_shade();
                 i = _get_current_index(x, y);
 
-                _img[(3 * i) + 2] = 0;
-                _img[(3 * i) + 1] = 0;
-
                 if (_iterator->set->is_in_set(result)) {
+                    _img[(3 * i) + 2] = 255;
+                    _img[(3 * i) + 1] = 255;
                     _img[(3 * i) + 0] = 255;
                 } else {
-                    _img[(3 * i) + 0] = shade;
+                    _img[(3 * i) + 2] = _shader->getRed(shade);
+                    _img[(3 * i) + 1] = _shader->getGreen(shade);
+                    _img[(3 * i) + 0] = _shader->getBlue(shade);
                 }
+
+                //if (_iterator->set->is_in_set(result)) {
+                //    _img[(3 * i) + 0] = 255;
+                //} else {
+                //    _img[(3 * i) + 0] = shade;
+                //}
             }
         }
 
@@ -104,7 +133,7 @@ namespace Drawers
         float iteration_count = _iterator->iteration_count;
         float iterations = _iterator->iterations;
 
-        shade = (iteration_count / iterations) * 255;
+        shade = iteration_count / iterations;
 
         return shade;
     }

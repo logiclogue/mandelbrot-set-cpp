@@ -11,6 +11,14 @@ namespace Drawers::Shaders
         ShaderColour _min_colour;
         ShaderColour _max_colour;
 
+        unsigned char _get_red_component(int colour);
+        unsigned char _get_green_component(int colour);
+        unsigned char _get_blue_component(int colour);
+        unsigned char _get_shade(
+            unsigned char min_colour,
+            unsigned char max_colour,
+            type_float shade);
+
     public:
         StandardBitmapShader(int min_colour, int max_colour);
 

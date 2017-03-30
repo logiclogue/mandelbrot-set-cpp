@@ -4,12 +4,14 @@
 #include "Drawer.hpp"
 #include "Translator.hpp"
 #include "Iterator.hpp"
+#include "BitmapShader.hpp"
 
 namespace Drawers
 {
     class BitmapDrawer : public Drawer {
         Iterators::Iterator *_iterator;
         Translators::Translator *_translator;
+        Shaders::BitmapShader *_shader;
         unsigned char *_img;
         unsigned char _file_header[14];
         unsigned char _info_header[40];
@@ -18,6 +20,10 @@ namespace Drawers
         int *_height;
         int _filesize;
 
+        void _init(
+            Iterators::Iterator *iterator,
+            Translators::Translator *translator,
+            Shaders::BitmapShader *shader);
         float _get_shade();
         float _get_current_index(int x, int y);
         void _output_image();
@@ -26,6 +32,10 @@ namespace Drawers
         BitmapDrawer(
             Iterators::Iterator *iterator,
             Translators::Translator *translator);
+        BitmapDrawer(
+            Iterators::Iterator *iterator,
+            Translators::Translator *translator,
+            Shaders::BitmapShader *shader);
         void draw();
     };
 }

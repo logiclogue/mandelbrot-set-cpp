@@ -6,9 +6,9 @@ namespace Drawers::Shaders
     class ShaderColour
     {
     public:
-        int red;
-        int green;
-        int blue;
+        unsigned char red;
+        unsigned char green;
+        unsigned char blue;
     };
 }
 
