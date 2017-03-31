@@ -20,6 +20,8 @@ namespace Models
         type_float multi_r;
         type_float multi_i;
         bool is_multibrot_set;
+        int min_colour;
+        int max_colour;
         bool bitmap;
         bool is_help_text;
     };

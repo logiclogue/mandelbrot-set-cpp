@@ -11,12 +11,15 @@
 #include "BitmapDrawer.hpp"
 #include "HelpTextDrawer.hpp"
 #include "Translator.hpp"
+#include "StandardBitmapShader.hpp"
+#include "BitmapShader.hpp"
 
 using namespace std;
 using namespace Drawers;
 using namespace Sets;
 using namespace Iterators;
 using namespace Drawers;
+using namespace Drawers::Shaders;
 using namespace Translators;
 using namespace Models;
 
@@ -62,9 +65,11 @@ namespace Factories
         Frame *frame = new Frame(model->width, model->height, model->ratio);
         Camera *camera = new Camera(focus, model->zoom);
         Translator *translator = new Translator(camera, frame);
+        BitmapShader *shader = new StandardBitmapShader(
+            model->min_colour, model->max_colour);
 
         if (model->bitmap) {
-            return new BitmapDrawer(iterator, translator);
+            return new BitmapDrawer(iterator, translator, shader);
         }
 
         return new ConsoleDrawer(iterator, translator);

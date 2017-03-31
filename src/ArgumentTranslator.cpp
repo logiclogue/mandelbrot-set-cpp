@@ -33,6 +33,8 @@ namespace Translators
         model->multi_r = 2;
         model->multi_i = 0;
         model->is_multibrot_set = false;
+        model->min_colour = 0x000000;
+        model->max_colour = 0xFFFFFF;
         model->bitmap = false;
     }
 
@@ -87,6 +89,10 @@ namespace Translators
             model->multi_i = atof(value);
         } else if (!strcmp(flag, "--help")) {
             model->is_help_text = true;
+        } else if (!strcmp(flag, "--min-colour")) {
+            model->min_colour = strtol(value, nullptr, 16);
+        } else if (!strcmp(flag, "--max-colour")) {
+            model->max_colour = strtol(value, nullptr, 16);
         } else if (!strcmp(flag, "--bitmap")) {
             model->bitmap = true;
         }
