@@ -93,7 +93,7 @@ namespace Drawers
     }
 
     BitmapDrawer::~BitmapDrawer() {
-        delete _shader;
+        free(_shader);
     }
 
     void BitmapDrawer::draw()
