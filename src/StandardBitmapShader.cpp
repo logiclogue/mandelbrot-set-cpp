@@ -49,7 +49,8 @@ namespace Drawers::Shaders
     unsigned char StandardBitmapShader::_get_shade(
         unsigned char min_colour, unsigned char max_colour, type_float shade)
     {
-        unsigned char output = uint(abs(max_colour - min_colour) * shade) + min_colour;
+        int diff = max_colour - min_colour;
+        unsigned char output = (diff * shade) + min_colour;
 
         return output;
     }
