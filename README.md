@@ -1,6 +1,39 @@
 # Mandelbrot Set Generator
 
-Mandelbrot Set generator written in C++.
+Mandelbrot Set generator written in C++. This program can draw to the command
+line and bitmap images.
+
+ ```
+                                                         *
+                                                      ******
+                                                      ******
+                                                       *****
+                                                 *  ***********  *
+                                            ************************ ***
+                                            ***************************
+                                        *******************************
+                                        ********************************   *
+                                        **********************************
+                        ** ***         ***********************************
+                        ***********   ***********************************
+                      ************** ************************************
+                     ***************************************************
+*********************************************************************
+                     ***************************************************
+                      ************** ************************************
+                        ***********   ***********************************
+                        ** ***         ***********************************
+                                        **********************************
+                                        ********************************   *
+                                        *******************************
+                                            ***************************
+                                            ************************ ***
+                                                 *  ***********  *
+                                                       *****
+                                                      ******
+                                                      ******
+                                                         *
+ ```
 
 ## Installation
 
@@ -16,10 +49,12 @@ Then run `./build/main` to run the program.
 - To practice coding that follows the SOLID principles
 - To create interfaces that are used for swapping, for example, the Mandelbrot
   Set for a Julia Set. There will also be an interface for drawers. The
-  implementation of `Drawer` draw to the console and another that will draw to a
+  implementation of `Drawer` will draw to the console and another that will draw to a
   bitmap.
 - Draw the Mandelbrot Set as plain text.
 - Draw the Mandelbrot Set as a bitmap.
+- To use C++ templates
+- To use C++ abstract classes
 
 ## Arguments
 
