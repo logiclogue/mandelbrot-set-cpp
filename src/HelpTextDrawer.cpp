@@ -26,7 +26,9 @@ char *help_text[] = {
     (char *)"                         (default 2)",
     (char *)" --multi-i     <number>  Draw a Multibrot Set with imaginary <number> power",
     (char *)"                         (default 0)",
-    (char *)" --bitmap                Draws to a bitmap (default not set)"
+    (char *)" --bitmap                Draws to a bitmap (default not set)",
+    (char *)" --min-colour  <hex>     Minimum colour for the shader (default 000000)",
+    (char *)" --max-colour  <hex>     Maximum colour for the shader (default FFFFFF)"
 };
 
 namespace Drawers
