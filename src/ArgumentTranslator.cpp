@@ -90,9 +90,9 @@ namespace Translators
         } else if (!strcmp(flag, "--help")) {
             model->is_help_text = true;
         } else if (!strcmp(flag, "--min-colour")) {
-            model->min_colour = strtol(value, nullptr, 16);
+            model->min_colour = strtol(value, NULL, 16);
         } else if (!strcmp(flag, "--max-colour")) {
-            model->max_colour = strtol(value, nullptr, 16);
+            model->max_colour = strtol(value, NULL, 16);
         } else if (!strcmp(flag, "--bitmap")) {
             model->bitmap = true;
         }
