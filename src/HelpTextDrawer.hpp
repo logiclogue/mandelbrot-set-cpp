@@ -7,12 +7,13 @@ namespace Drawers
 {
     class HelpTextDrawer : public Drawer
     {
-        int _length;
-        char *_program_name;
-
     public:
         HelpTextDrawer(char *program_name);
         void draw();
+
+    private:
+        int _length;
+        char *_program_name;
     };
 }
 

@@ -10,6 +10,18 @@ namespace Drawers
 {
     class BitmapDrawer : public Drawer
     {
+    public:
+        BitmapDrawer(
+            Iterators::Iterator *iterator,
+            Translators::Translator *translator);
+        BitmapDrawer(
+            Iterators::Iterator *iterator,
+            Translators::Translator *translator,
+            Shaders::BitmapShader *shader);
+        ~BitmapDrawer();
+        void draw();
+
+    private:
         Iterators::Iterator *_iterator;
         Translators::Translator *_translator;
         Shaders::BitmapShader *_shader;
@@ -28,17 +40,6 @@ namespace Drawers
         float _get_shade();
         float _get_current_index(int x, int y);
         void _output_image();
-
-    public:
-        BitmapDrawer(
-            Iterators::Iterator *iterator,
-            Translators::Translator *translator);
-        BitmapDrawer(
-            Iterators::Iterator *iterator,
-            Translators::Translator *translator,
-            Shaders::BitmapShader *shader);
-        ~BitmapDrawer();
-        void draw();
     };
 }
 

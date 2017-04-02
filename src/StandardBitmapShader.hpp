@@ -8,6 +8,14 @@ namespace Drawers::Shaders
 {
     class StandardBitmapShader : public BitmapShader
     {
+    public:
+        StandardBitmapShader(int min_colour, int max_colour);
+
+        unsigned char get_red(type_float shade);
+        unsigned char get_green(type_float shade);
+        unsigned char get_blue(type_float shade);
+
+    private:
         ShaderColour _min_colour;
         ShaderColour _max_colour;
 
@@ -18,13 +26,6 @@ namespace Drawers::Shaders
             unsigned char min_colour,
             unsigned char max_colour,
             type_float shade);
-
-    public:
-        StandardBitmapShader(int min_colour, int max_colour);
-
-        unsigned char get_red(type_float shade);
-        unsigned char get_green(type_float shade);
-        unsigned char get_blue(type_float shade);
     };
 }
 
