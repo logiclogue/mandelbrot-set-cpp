@@ -168,7 +168,7 @@ Output:
 
 ### Draw to an image
 
-Command
+Command:
 
 `./build/main --bitmap --ratio 1 --width 1920 --height 1080 --iterations 10 --max-colour 00FF00 > mandelbrot.bmp`
 
